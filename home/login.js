@@ -1,5 +1,6 @@
 let email = document.getElementById("email");
 let pwd = document.getElementById("pwd");
+let error = document.getElementById("error");
 
 function validate(){
     // if(email.value==""|| pwd.value==""){
@@ -9,7 +10,7 @@ function validate(){
     // else
     //     //alert("Validation is proper");
     //     return false;
-
+    let regexp = /^([A-Za-z0-9\.-])@().()(.)$/
 
     if(email.value==""){
         alert("Email cannot be empty");
