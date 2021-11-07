@@ -160,7 +160,7 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
               Sign-up with Google
             </a>
           </div>
-    <form class="email-signup" >
+    <form class="email-signup" onsubmit="return validateForm()">
         <div class="u-form-group">
           <input type="email"  id="email" placeholder="Email"/>
         </div>
@@ -169,8 +169,11 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
         </div>
         
         <div class="u-form-group">
-          <input type="password" id="pwd" placeholder="Password"/>
+        <input name="password" id="password" type="password" placeholder="Password" size="15" maxlength="100" onkeyup="return password_validate();" />
+        <br>
+        <span id="strength">Type Password</span>
         </div>
+
         <div class="u-form-group">
           <input type="password" id="re-pwd" placeholder="Confirm Password"/>
         </div>
