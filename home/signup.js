@@ -3,8 +3,9 @@ let pwd = document.getElementById("pwd");
 let error = document.getElementById("error");
 
 function validateForm() {
+    
     let emailvalid = validateEmail()
-    let passwordd = password()
+    let password = password();
 }
 
 function validateEmail(){
