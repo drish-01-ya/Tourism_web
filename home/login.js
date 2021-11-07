@@ -2,29 +2,37 @@ let email = document.getElementById("email");
 let pwd = document.getElementById("pwd");
 let error = document.getElementById("error");
 
-function validate(){
-    // if(email.value==""|| pwd.value==""){
-    //     alert("Fields cannot be empty");
-    //     return true;
-    // }
-    // else
-    //     //alert("Validation is proper");
-    //     return false;
-    let regexp = /^([A-Za-z0-9\.-])@().()(.)$/
+function validateForm() {
+    
+    let emailvalid = validateEmail()
+    let password = password();
+}
 
+function validateEmail(){
+    let regexp = /^([A-Za-z0-9\.-]+)@([A-Za-z0-9\-]+).([a-z]{2,3})(.[a-z]{2,3})?$/
+
+    
     if(email.value==""){
         alert("Email cannot be empty");
         return false;
     }
-    else if(pwd.value==""){
-        alert("Password cannot be blank");
+    else if(regexp.test(email.value)){
+        error.innerHTML= "Valid";
+        error.style.color = "green";
+        return true;
+    }
+    else {
+        error.innerHTML = "Invalid";
+        error.style.color = "red";
         return false;
     }
-    else if(pwd.value.length<=8){
-        alert("Password is too short");
-        pwd.style.border="2px solid red";
-    }
-    else return true;
 }
 
-
+function password(){
+    if(pwd.value==""){
+        alert("Password cannot be empty");
+        return false;    
+    }
+    else 
+    return true;
+}
