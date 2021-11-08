@@ -160,12 +160,19 @@ box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.33);
               Sign-up with Google
             </a>
           </div>
-    <form class="email-signup" onsubmit="return validateForm()">
+    <form action="#" class="email-signup" onsubmit="return validateForm()">
         <div class="u-form-group">
           <input type="email"  id="email" placeholder="Email"/>
+          <br>
+          <br>
+          <label for="error" id="error"></label>
         </div>
         <div class="u-form-group">
-          <input type="tel" id="phno" placeholder="Phone number"/>
+          <input id="phno" placeholder="Phone number"/>
+          <br>
+          <br>
+          <label for="error" id="ph_error"></label>
+          
         </div>
         
         <div class="u-form-group">

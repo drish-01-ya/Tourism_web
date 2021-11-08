@@ -2,6 +2,7 @@ let email = document.getElementById("email");
 let pwd = document.getElementById("pwd");
 let phno = document.getElementById("phno");
 let error = document.getElementById("error");
+let ph_error = document.getElementById("ph_error");
 
 
 //codeee
@@ -12,7 +13,7 @@ function validateForm() {
     
     let emailvalid = validateEmail()
     let passwordd = password_validate()
-    let phnum =  phonenumber();
+    let phno =  phonenumber();
 }
 
 function validateEmail(){
@@ -36,12 +37,12 @@ function validateEmail(){
 }
 
 function password_validate(){
-    // if(pwd.value==""){
-    //     alert("Password cannot be empty");
-    //     return false;    
-    // }
-    // else{
-         var strength = document.getElementById('strength');
+    //  if(pwd.value==""){
+    //      alert("Password cannot be empty");
+    //      return false;    
+    //  }
+    //  else{
+        var strength = document.getElementById('strength');
         var strongRegex = new RegExp("^(?=.{14,})(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*\\W).*$", "g");
         var mediumRegex = new RegExp("^(?=.{10,})(((?=.*[A-Z])(?=.*[a-z]))|((?=.*[A-Z])(?=.*[0-9]))|((?=.*[a-z])(?=.*[0-9]))).*$", "g");
         var enoughRegex = new RegExp("(?=.{8,}).*", "g");
@@ -57,14 +58,45 @@ function password_validate(){
         } else {
             strength.innerHTML = '<span style="color:red">Weak!</span>';
         }
+        
     
 }
     
 function phonenumber(){
+    //var phno_display = document.getElementById('phno_display');
+    let RegExp1 = /^([1-9]{3})-([0-9]{3})-([0-9]{4})$/
+    //let RegExp2 = /^([1-9]{1})([0-9]{9})$/
+    let RegExp3 = /^([1-9]{3}).([0-9]{3}).([0-9]{4})$/
+    //let RegExp4 = /^([1-9]{3})""([0-9]{3})""([0-9]{4})$/
+    //var phno = document.getElementById("phno");
     if(phno.value==""){
-        alert("Phone number cannot be empty.")
+        alert("Phone number cannot be empty");
         return false;
     }
-    else 
-    return true;
+    else if(RegExp1.test(phno.value)){
+        ph_error.innerHTML= "Valid";
+        ph_error.style.color = "green";
+        return true;
+    }
+    // else if(RegExp2.test(phno.value)){
+    //     ph_error.innerHTML= "Valid";
+    //     ph_error.style.color = "green";
+    //     return true;
+    // }
+    else if(RegExp3.test(phno.value)){
+        ph_error.innerHTML= "Valid";
+        ph_error.style.color = "green";
+        return true;
+    }
+    // else if(RegExp4.test(phno.value)){
+    //     ph_error.innerHTML= "Valid";
+    //     ph_error.style.color = "green";
+    //     return true;
+    // }
+    else{
+        ph_error.innerHTML = "Invalid";
+        ph_error.style.color = "red";
+        return false;
+    }
+    
 }
