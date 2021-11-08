@@ -63,12 +63,10 @@ function password_validate(){
 }
     
 function phonenumber(){
-    //var phno_display = document.getElementById('phno_display');
     let RegExp1 = /^([1-9]{3})-([0-9]{3})-([0-9]{4})$/
-    //let RegExp2 = /^([1-9]{1})([0-9]{9})$/
-    let RegExp3 = /^([1-9]{3}).([0-9]{3}).([0-9]{4})$/
-    //let RegExp4 = /^([1-9]{3})""([0-9]{3})""([0-9]{4})$/
-    //var phno = document.getElementById("phno");
+    ///let RegExp2 = /^([1-9]{3}).([0-9]{3}).([0-9]{4})$/
+    let RegExp3 = /^([1-9]{3})([0-9]{3})([0-9]{4})$/
+    let RegExp4 = /^([1-9]{3}) ([0-9]{3}) ([0-9]{4})$/
     if(phno.value==""){
         alert("Phone number cannot be empty");
         return false;
@@ -88,11 +86,11 @@ function phonenumber(){
         ph_error.style.color = "green";
         return true;
     }
-    // else if(RegExp4.test(phno.value)){
-    //     ph_error.innerHTML= "Valid";
-    //     ph_error.style.color = "green";
-    //     return true;
-    // }
+    else if(RegExp4.test(phno.value)){
+        ph_error.innerHTML= "Valid";
+        ph_error.style.color = "green";
+        return true;
+    }
     else{
         ph_error.innerHTML = "Invalid";
         ph_error.style.color = "red";
