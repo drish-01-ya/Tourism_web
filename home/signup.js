@@ -64,7 +64,7 @@ function password_validate(){
     
 function phonenumber(){
     let RegExp1 = /^([1-9]{3})-([0-9]{3})-([0-9]{4})$/
-    //let RegExp2 = /^([1-9]{3}).([0-9]{3}).([0-9]{4})$/
+    let RegExp2 = /^([1-9]{3}).([0-9]{3}).([0-9]{4})$/
     let RegExp3 = /^([1-9]{3})([0-9]{3})([0-9]{4})$/
     let RegExp4 = /^([1-9]{3}) ([0-9]{3}) ([0-9]{4})$/
     if(phno.value==""){
@@ -76,11 +76,11 @@ function phonenumber(){
         ph_error.style.color = "green";
         return true;
     }
-    // else if(RegExp2.test(phno.value)){
-    //     ph_error.innerHTML= "Valid";
-    //     ph_error.style.color = "green";
-    //     return true;
-    // }
+    else if(RegExp2.test(phno.value)){
+        ph_error.innerHTML= "Valid";
+        ph_error.style.color = "green";
+        return true;
+    }
     else if(RegExp3.test(phno.value)){
         ph_error.innerHTML= "Valid";
         ph_error.style.color = "green";
